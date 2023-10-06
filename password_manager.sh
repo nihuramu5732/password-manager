@@ -29,4 +29,26 @@ do
                 
             fi
     fi
+        
+    # Get Password が入力された場合
+    if [ "$choices" = "Get Password" ]; then
+        echo "サービス名を入力してください："
+        read search
+        file=s:u:p.txt
+        result=$(grep "^$search" "$file")
+        
+            ## サービス名が保存されていた場合
+            if [ -n "$result" ]; then
+                ## 検索した文字列の行をコロンで分けて変数に代入
+                user=$(echo "$result" | cut -d":" -f2)
+                password=$(echo "$result" | cut -d":" -f3)
+                
+                echo "サービス名：$search"
+                echo "ユーザー名：$user"
+                echo "パスワード：$password"
+            else
+                ## サービス名が保存されていなかった場合
+                echo "そのサービスは登録されていません。"
+            fi
+    fi
 done
