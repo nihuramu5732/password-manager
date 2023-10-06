@@ -51,4 +51,10 @@ do
                 echo "そのサービスは登録されていません。"
             fi
     fi
+    
+        # Exit が入力された場合
+    if [ "$choices" = "Exit" ]; then
+        echo "Thank you!"
+        break
+    fi
 done
