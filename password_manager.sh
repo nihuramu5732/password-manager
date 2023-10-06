@@ -52,6 +52,11 @@ do
             fi
     fi
     
+        # Add Password/Get Password/Exit 以外が入力された場合
+    if [ "$choices" != "Add Password" ] && [ "$choices" != "Get Password" ] && [ "$choices" != "Exit" ]; then
+        echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
+    fi
+    
         # Exit が入力された場合
     if [ "$choices" = "Exit" ]; then
         echo "Thank you!"
